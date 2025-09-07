@@ -1,6 +1,138 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+/* Base (mobile-first) */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background: #003366;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #004488;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 1em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  padding: 2em;
+}
+
+/* Section styling */
+section {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Car showcase */
+.car-showcase {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+}
+
+.car-info {
+  margin-bottom: 1rem;
+}
+
+.car-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reviews */
+.reviews {
+  padding: 1rem;
+}
+
+.reviews ul {
+  padding-left: 1.5rem;
+}
+
+/* Upgrades */
+.upgrades {
+  padding: 1rem;
+}
+
+.upgrades .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.upgrade {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.upgrade img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #cc0000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #aa0000;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .car-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .car-info {
+    flex: 1;
+  }
+
+  .car-image {
+    flex: 1;
+    text-align: right;
+  }
+
+  .reviews, .upgrades {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
