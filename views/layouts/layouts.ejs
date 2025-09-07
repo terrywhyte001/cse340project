@@ -1,3 +1,21 @@
-<%- include('partials/header') %>
-...main content...
-<%- include('partials/footer') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Include header -->
+  <%- include('partials/header') %>
+
+  <!-- Dynamic page content goes here -->
+  <main>
+    <%- body %>
+  </main>
+
+  <!-- Include footer -->
+  <%- include('partials/footer') %>
+</body>
+</html>
