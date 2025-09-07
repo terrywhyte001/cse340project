@@ -7,15 +7,13 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <!-- Include header -->
   <%- include('partials/header') %>
+  <%- include('partials/nav') %>
 
-  <!-- Dynamic page content goes here -->
   <main>
-    <%- body %>
+    <%- body %> <!-- 👈 index.ejs content will be injected here -->
   </main>
 
-  <!-- Include footer -->
   <%- include('partials/footer') %>
 </body>
 </html>
