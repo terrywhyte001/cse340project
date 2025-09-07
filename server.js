@@ -7,10 +7,11 @@
  * Require Statements
  *************************/
 const express = require("express")
-const env = require("dotenv").config()
-const expressLayouts = require("express-ejs-layouts")
+const dotenv = require("dotenv")
 const path = require("path")
+const expressLayouts = require("express-ejs-layouts")
 
+dotenv.config()
 const app = express()
 
 /* ***********************
@@ -25,30 +26,27 @@ app.use(expressLayouts)
  *************************/
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
+app.set("layout", "layouts/layout") // main layout (wraps index.ejs + partials)
 
 /* ***********************
  * Routes
  *************************/
-// Root route → renders index.ejs
+// Home route → renders index.ejs inside layout
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" })
 })
 
-// Example API route (you can add your contacts here later)
+// Example API route (assignment placeholder)
 app.get("/contacts", (req, res) => {
   res.json({ message: "Contacts API coming soon!" })
 })
 
 /* ***********************
- * Local Server Information
- * Values from .env (environment) file
+ * Server Startup
  *************************/
 const port = process.env.PORT || 3000
-const host = process.env.HOST || "localhost"
 
-/* ***********************
- * Start Server
- *************************/
 app.listen(port, () => {
-  console.log(`App listening on ${host}:${port}`)
+  console.log(`App running on http://localhost:${port}`)
 })
+
