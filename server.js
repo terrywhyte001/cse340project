@@ -1,50 +1,29 @@
-/* ******************************************
- * server.js
- * Main server file
- ******************************************/
-
-/* ***********************
- * Require Statements
- *************************/
+// server.js
 const express = require("express")
-const env = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const path = require("path")
 
 const app = express()
 
-/* ***********************
- * Middleware
- *************************/
-// Serve static files (CSS, images, JS) from "public"
-app.use(express.static(path.join(__dirname, "public")))
-app.use(expressLayouts)
-
+// Set view engine
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
-app.set("layout", "layout")   // 👈 tells express-ejs-layouts to use views/layout.ejs
+
+// Middleware
 app.use(expressLayouts)
+app.use(express.static(path.join(__dirname, "public")))
 
-/* ***********************
- * Routes
- *************************/
-// Root route → renders index.ejs inside layout.ejs
+// Routes
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" })
+  res.render("index", { 
+    title: "Home Page"  // 👈 Passes to <%= title %>
+  })
 })
 
-// Example API route (not required but good to keep)
-app.get("/contacts", (req, res) => {
-  res.json({ message: "Contacts API coming soon!" })
+// Use PORT from environment (Render) or fallback to 3000
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`)
 })
 
-/* ***********************
- * Server Startup
- *************************/
-const port = process.env.PORT || 5500
-const host = process.env.HOST || "localhost"
-
-app.listen(port, () => {
-  console.log(`App listening on ${host}:${port}`)
-})
 

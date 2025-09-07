@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %> | Delorean Motors</title>
-  <!-- Professional font -->
+  <title><%= title %></title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <!-- Header -->
-  <%- include("../partials/header") %>
+  <%- include("partials/header") %>
 
   <!-- Navigation -->
-  <%- include("../partials/nav") %>
+  <%- include("partials/nav") %>
 
-  <!-- Page Content -->
+  <!-- Main Page Content -->
   <main>
-    <%- body %>
+    <%- body %> <!-- index.ejs (or any view) gets injected here -->
   </main>
 
   <!-- Footer -->
-  <%- include("../partials/footer") %>
+  <%- include("partials/footer") %>
 </body>
 </html>
+
 
