@@ -20,12 +20,10 @@ const app = express()
 app.use(express.static(path.join(__dirname, "public")))
 app.use(expressLayouts)
 
-/* ***********************
- * View Engine Setup
- *************************/
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
-app.set("layout", "./layouts/layout")  // 👈 put this right after views setup
+app.set("layout", "layout")   // 👈 tells express-ejs-layouts to use views/layout.ejs
+app.use(expressLayouts)
 
 /* ***********************
  * Routes
